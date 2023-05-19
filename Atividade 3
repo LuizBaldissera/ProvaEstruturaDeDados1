@@ -1,0 +1,73 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+
+
+int main(){
+int vetor[5];
+int old;
+int novo;
+popular(vetor, 5, 50);
+
+
+vetorSubstituir(vetor, 5, old, novo);
+printf("elementos do seu vetor:");
+printf("\n");
+exibir1(vetor, 5);
+
+printf("Qual valor voce quer subistituir: ");
+scanf ("%d", &old);
+
+printf("Por qual valor voce quer subistituir: ");
+scanf ("%d", &novo);
+vetorSubstituir(vetor, 5, old, novo);
+
+printf("elementos do seu vetor: ");
+printf("\n");
+exibir1(vetor, 5);
+
+
+
+
+return 0;
+}
+
+void exibir1(int *v, int n) {
+    if (n > 0) {
+
+
+        exibir1(v, n - 1);
+
+
+        printf("[%d]:%d\n",n - 1, v[n - 1]);
+    }
+}
+
+void popular(int *v, int n, int valor) {
+    if (n > 0) {
+
+
+        popular(v, n - 1, valor);
+
+
+        v[n - 1] = rand() % valor;
+    }
+}
+
+
+
+void vetorSubstituir(int *v, int n, int old, int novo){
+if(n>0){
+    if(v[n-1] == old){
+        v[n-1] = novo;
+    }
+
+    vetorSubstituir(v, n-1, old, novo);
+
+}
+}
+
+
+
+
+
