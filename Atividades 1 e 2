@@ -1,0 +1,59 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+
+//atividade 1
+void exibirDiagonalPrincipal(int matriz[][3], int tamanho, int linha) {
+    if (linha == tamanho) {
+        return;
+    }
+
+    printf("%d ", matriz[linha][linha]);
+    exibirDiagonalPrincipal(matriz, tamanho, linha + 1);
+}
+
+int main() {
+    int matriz[3][3];
+    int tamanho = 3;
+    int vetor[5];
+
+
+    for (int i = 0; i < tamanho; i++) {
+        for (int j = 0; j < tamanho; j++) {
+           matriz [i][j] = rand() % 100;
+        }
+    }
+
+    printf("Diagonal principal:");
+    exibirDiagonalPrincipal(matriz, tamanho, 0);
+    printf("\n");
+
+
+    PrencherDados (vetor, 5, 0);
+    exibir1(vetor, 5);
+
+
+    return 0;
+}
+
+//atividade 2
+void exibir1(int *v, int n) {
+    if (n > 0) {
+
+
+        exibirR(v, n - 1);
+
+
+        printf("[%d]:%d\n",n - 1, v[n - 1]);
+    }
+}
+
+void PrencherDados(int *v, int n, int dado){
+ if (n > 0) {
+
+     printf("Digite um valor: ");
+     scanf("%d", &dado);
+     PrencherDados(v, n - 1, dado);
+     v[n - 1] = dado;
+ }
+}
